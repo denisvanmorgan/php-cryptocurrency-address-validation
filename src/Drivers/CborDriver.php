@@ -12,7 +12,6 @@ use CBOR\OtherObject\SimpleObject;
 use CBOR\Tag\GenericTag;
 use CBOR\Tag\TagManager;
 use CBOR\Tag\UnsignedBigIntegerTag;
-use Illuminate\Support\Str;
 use Merkeleon\PhpCryptocurrencyAddressValidation\Utils\Base58Decoder;
 use Throwable;
 use function array_keys;
@@ -38,7 +37,13 @@ class CborDriver extends AbstractDriver
 
     public function match(string $address): bool
     {
-        return Str::startsWith($address, array_keys($this->options));
+        foreach (array_keys($this->options) as $key) {
+            if (str_starts_with($address, (string) $key)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public function check(string $address): bool
