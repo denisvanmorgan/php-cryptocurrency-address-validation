@@ -16,6 +16,7 @@ use Merkeleon\PhpCryptocurrencyAddressValidation\Utils\Base58Decoder;
 use Throwable;
 use function array_keys;
 use function array_values;
+use function str_starts_with;
 
 class CborDriver extends AbstractDriver
 {

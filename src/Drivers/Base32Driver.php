@@ -14,6 +14,7 @@ use function array_slice;
 use function implode;
 use function pack;
 use function preg_match;
+use function str_contains;
 use function sprintf;
 use function strtolower;
 
