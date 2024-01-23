@@ -12,7 +12,6 @@ use function preg_match;
 
 class CardanoDriver extends AbstractDriver
 {
-
     public function match(string $address): bool
     {
         $prefix =  implode('|', array_keys($this->options));
